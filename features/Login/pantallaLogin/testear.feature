@@ -1,4 +1,4 @@
-Feature: CMS login page
+Feature:  failed CMS login page
 
 Scenario: an authorized user can access the CMS
   Given I am the hotel staff
