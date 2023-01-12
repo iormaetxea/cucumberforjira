@@ -1,8 +1,23 @@
 {
-  "devDependencies": {
-    "@cucumber/cucumber": "^7.3.1",
+  "scripts": {
+    "regression-pwa": "BROWSER=chromium DEVICE='iPhone 11' cucumber-js features/02-regression/pwa ; cp reports/report.html reports/regression/pwa/report_regression_pwa.html",
+    "regression-cms": "cucumber-js features/02-regression/cms ; cp reports/report.html reports/regression/pwa/report_regression_cms.html",
+    "regression": "BROWSER=chromium DEVICE='iPhone 11' cucumber-js features/02-regression/pwa ; node reporter-regression.js ; mv reports/cucumber-report-regression.html reports/regression/pwa ; cucumber-js features/02-regression/cms ; node reporter-regression.js ; mv reports/cucumber-report-regression.html reports/regression/cms",
+    "stories-pwa": "BROWSER=chromium DEVICE='iPhone 11' cucumber-js features/01-userStoryAcceptance/pwa ; node reporter-us.js ; mv reports/cucumber-report-us.html reports/userStories/pwa",
+    "stories-cms": "cucumber-js features/01-userStoryAcceptance/cms ; node reporter-us.js ; mv reports/cucumber-report-us.html reports/userStories/cms",
+    "stories": "BROWSER=chromium DEVICE='iPhone 11' cucumber-js features/01-userStoryAcceptance/pwa ; node reporter-us.js ; mv reports/cucumber-report-us.html reports/userStories/pwa ; cucumber-js features/01-userStoryAcceptance/cms ; node reporter-us.js ; mv reports/cucumber-report-us.html reports/userStories/pwa",
+    "staging": "cucumber-js features/02-regression/pwa ; node reporter-regression.js ; mv reports/cucumber-report-regression.html reports/regression/pwa ; cucumber-js features/02-regression/cms ; node reporter-regression.js ; mv reports/cucumber-report-regression.html reports/regression/cms ; BROWSER=chromium DEVICE='iPhone 11' cucumber-js features/01-userStoryAcceptance/pwa ; node reporter-us.js ; mv reports/cucumber-report-us.html reports/userStories/pwa ; cucumber-js features/01-userStoryAcceptance/cms ; node reporter-us.js ; mv reports/cucumber-report-us.html reports/userStories/cms",
+    "testr": "cucumber-js --retry 1",
+    "test": "cucumber-js"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^8.10.0",
     "@cucumber/pretty-formatter": "^1.0.0",
-    "@playwright/test": "^1.29.2",
-    "playwright": "^1.29.2"
+    "@playwright/test": "^1.29.1",
+    "axios": "^0.27.2",
+    "cucumber": "^6.0.7",
+    "cucumber-html-reporter": "^5.5.0",
+    "dotenv": "^16.0.3",
+    "playwright": "^1.29.1"
   }
 }
