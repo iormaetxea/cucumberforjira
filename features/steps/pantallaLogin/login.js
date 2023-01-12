@@ -20,7 +20,7 @@ When('I inform correct credentials', async function () {
    await page.getByPlaceholder("Password").fill(process.env.cms_pass);
  });
 
- When('I inform correct credentials', async function () {
+ When('I inform incorrect credentials', async function () {
    await page.getByPlaceholder("username").click();
    await page.getByPlaceholder("username").fill(process.env.cms_user);
    await page.getByPlaceholder("Password").click();
